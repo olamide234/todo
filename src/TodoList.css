@@ -1,0 +1,61 @@
+.todo__todolist-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var( --very-light-gray);
+}
+.todo__todolist-heading h1 {
+    font-size: 2.8rem;
+    font-weight: 700; 
+    letter-spacing: 15px;
+}
+.todo__todolist-functions {
+    line-height: 25px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: var(--dark-grayish-blue2);
+}
+#dark {
+    background-color: var(--very-dark-desaturated-blue);
+}
+.todo__todolist-functions__btn button {
+    background-color: var(--very-dark-desaturated-blue);
+    border: none;
+    padding: .5rem;
+    color: var(--dark-grayish-blue2);
+    font-size: 16px;
+}
+.todo__todolist-functions__btn button:hover,
+.todo__todolist-functions__btn button:focus,
+.todo__todolist-functions__CComp:hover,
+.todo__todolist-functions__CComp:focus {
+    color: var(--very-light-grayish-blue);
+}
+.todo__todolist-functions__btn button:focus-visible {
+    outline: none;
+}
+.todo__todolist-functions__CComp {
+    background-color: var(--very-dark-desaturated-blue);
+    border: none;
+    color: var(--dark-grayish-blue2);
+    font-size: 16px;
+}
+.todo__todolist-p {
+    color: var(--dark-grayish-blue2);
+    font-size: 14px;
+    justify-content: center;
+    display: flex;
+    padding-top: 4rem;
+}
+.completed-li p {
+    text-decoration: line-through;
+    color: hsl(234, 11%, 52%);
+}
+.completed-li button {
+    background-image: var(--gradient-round-button);
+}
