@@ -29,6 +29,7 @@
     padding: .5rem;
     color: var(--dark-grayish-blue2);
     font-size: 16px;
+    cursor: pointer;
 }
 .todo__todolist-functions__btn button:hover,
 .todo__todolist-functions__btn button:focus,
@@ -44,6 +45,7 @@
     border: none;
     color: var(--dark-grayish-blue2);
     font-size: 16px;
+    cursor: pointer;
 }
 .todo__todolist-p {
     color: var(--dark-grayish-blue2);

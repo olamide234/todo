@@ -11,12 +11,14 @@
 .todo__oneTodo-main {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
+    max-width: 85%;
+    align-items: center;
 }
 .todo__oneTodo-main__txt {
     font-size: 22px;
     color: var(--light-grayish-blue);
     font-family: var(--font-family);
+    overflow: scroll;
 }
 .todo__oneTodo-main__txt-completed {
     font-size: 22px;
@@ -26,7 +28,8 @@
 .todo__oneTodo-main__toggleBtn {
     background-color: var(--very-dark-desaturated-blue);
     cursor: pointer;
-    width: 27px;
+    min-width: 27px;
+    height: 27px;
     border-radius: 50%;
     border: 1px solid var(--extreme-dark-grayish-blue);
     margin-right: 1.5rem;
@@ -47,8 +50,10 @@
 .todo__oneTodo-functions:hover {
     color: var(--light-grayish-blue);
 }
-.todo__oneTodo-functions__delete{
+.todo__oneTodo-functions__delete,
+.todo__oneTodo-functions__edit {
     margin-left: .5rem;
+    cursor: pointer;
 }
 .todo__oneTodo-editing {
     background-color: var(--very-dark-desaturated-blue);

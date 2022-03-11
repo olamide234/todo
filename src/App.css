@@ -15,7 +15,6 @@ body{
   color: white;
 }
 .App {
-  /* border: 1px solid white; */
   margin: 5rem 30% 3rem;
 }
 @media screen and (max-width: 550px) {

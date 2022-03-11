@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Todo.css';
 import {MdEdit, MdDelete} from "react-icons/md"
-import checkIcon from "./assets/icon-check.svg"
+import checkIcon from "../assets/icon-check.svg"
 
 export default class Todo extends Component {
     constructor(props) {
@@ -19,7 +19,7 @@ export default class Todo extends Component {
         // this.coverAll = this.coverAll.bind(this);
     }
     handleRemove() {
-        this.props.removeTodo(this.props.id);
+        this.props.removeTodo(this.props.id, this.state.isCompleted);
     }
     toggleForm() {
         this.setState({isEditing: !this.state.isEditing});
@@ -80,7 +80,7 @@ export default class Todo extends Component {
                         <p className={this.state.isCompleted ? "todo__oneTodo-main__txt-completed" : "todo__oneTodo-main__txt"}>{this.props.task}</p>
                     </div>
                     <div className="todo__oneTodo-functions">
-                        {!this.state.isCompleted &&
+                        {!this.state.isCompleted && !this.props.forCompleted &&
                             // <button className="todo__oneTodo-functions__edit" onClick={this.toggleForm}><MdEdit color="hsl(233, 14%, 35%)" size={25}/></button>
                             <MdEdit className="todo__oneTodo-functions__edit" onClick={this.toggleForm} color="hsl(233, 14%, 35%)" size={25}/>
                         }
