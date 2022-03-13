@@ -22,19 +22,20 @@ export default class NewTodoForm extends Component {
     !this.state.task ? this.setState({error: "Please add a todo"}) : this.setState({error: ""})
   }
   render() {
+    console.log(this.props.theme)
     return (
-      <div className="todo__newtodo">
-        <div className="todo__newtodo-content">
-          <button className="todo__newtodo-content__btn"></button>
+      <div className= "todo__newtodo">
+        <div className={this.props.theme ? "todo__newtodo-content light1" : "todo__newtodo-content dark1"}>
+          <button className={this.props.theme ? "todo__newtodo-content__btn light2" : "todo__newtodo-content__btn dark2"}></button>
           <form onSubmit={this.handleSubmit}>
-            <input
+            <input className={this.props.theme ? "light3" : "dark3"}
               name="task"
               type="text"
               placeholder="Create a new todo..."
               value={this.state.task}
               onChange={this.handleChange}
             />
-            <button><VscAdd color="hsl(233, 14%, 35%)" size={25} /></button>
+            <button className={this.props.theme ? "light4" : "dark4"}><VscAdd color="hsl(233, 14%, 35%)" size={25} /></button>
           </form>
         </div>
         <div className="todo__newtodo-error">

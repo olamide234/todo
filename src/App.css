@@ -6,33 +6,48 @@
 }
 body{
   background-color: var(--very-dark-blue);
-  background-image: url(assets/bg-desktop-dark.jpg);
-  background-repeat: no-repeat;
-  background-size: cover; /* 100% 300%*/
-  height: 250px;
   font-family: var(--font-family);
   font-size: 10px;
   color: white;
 }
+#dark-a {
+  height: 100vh;
+  background-color: var(--very-dark-blue);
+}
+#light-a {
+  height: 100vh;
+  background-color: var(--very-light-gray);
+}
 .App {
-  margin: 5rem 30% 3rem;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  height: 300px;
+  padding: 5rem 30% 3rem;
+}
+#dark-app {
+  /* background-color: var(--very-dark-blue); */
+  background-image: url(assets/bg-desktop-dark.jpg);
+}
+#light-app {
+  background-image: url(assets/bg-desktop-light.jpg);
 }
 @media screen and (max-width: 550px) {
-  body {
-    background-size: cover;
-    height: 200px;
+  .App {
+    /* background-size: cover; */
+    background-image: url(assets/bg-mobile-dark.jpg);
+    /* height: 300px; */
   }
 }
 @media screen and (max-width: 450px) {
-  body {
-    background-size: cover;
-    background-image: url(assets/bg-mobile-dark.jpg);
-    height: 250px;
+  .App {
+    /* background-size: cover; */
+    
+    /* height: 300px;  */
   }
 }
 @media screen and (max-width: 395px) {
-  body {
-    height: 200px;
+  .App {
+    /* height: 300px; */
   }
 }
 /* .App {

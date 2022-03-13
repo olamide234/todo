@@ -202,20 +202,19 @@ export default class TodoList extends Component {
             onClick={this.toggleTheme}
           />
         </div>
-        <NewTodoForm createTodo={this.create} />
+        <NewTodoForm createTodo={this.create} theme={this.state.toggle}/>
         <ul>{output}</ul>
         <div
-          className="todo__todolist-functions"
-          id={this.state.toggle ? "light" : "dark"}
+          className={this.state.toggle ? "todo__todolist-functions light-i" : "todo__todolist-functions dark-i"}
         >
           <p>{this.state.count} items left</p>
-          <div className="todo__todolist-functions__btn">
+          <div className={this.state.toggle ? "todo__todolist-functions__btn light-ii" : "todo__todolist-functions__btn dark-ii"}>
             <button onClick={this.handleAll}>All</button>
             <button onClick={this.handleActive}>Active</button>
             <button onClick={this.handleCompleted}>Completed</button>
           </div>
           <button
-            className="todo__todolist-functions__CComp"
+            className={this.state.toggle ? "todo__todolist-functions__CComp light-iii" : "todo__todolist-functions__CComp dark-iii"}
             onClick={this.handleClear}
           >
             Clear Completed

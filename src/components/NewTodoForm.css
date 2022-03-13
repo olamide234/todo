@@ -3,7 +3,6 @@
     margin-bottom: 1.5rem;
 }
 .todo__newtodo-content {
-    background-color: var(--very-dark-desaturated-blue); 
     padding: 1rem;
     display: flex;
     flex-direction: row;
@@ -11,13 +10,27 @@
     line-height: 25px;
     align-content: center;
 }
-.todo__newtodo-content__btn {
+.light1,
+.light4 {
+    background-color: white;
+}
+.dark1,
+.dark4 {
     background-color: var(--very-dark-desaturated-blue);
+}
+.todo__newtodo-content__btn {
     min-width: 27px;
     height: 27px;
     border-radius: 50%;
-    border: 1px solid var(--extreme-dark-grayish-blue);
     margin-right: 1.5rem;
+}
+.dark2 {
+    background-color: var(--very-dark-desaturated-blue);
+    border: 1px solid var(--extreme-dark-grayish-blue);
+}
+.light2 {
+    background-color: white;
+    border: 1px solid var(--lighty-grayish-blue);
 }
 form {
     width: 100%;
@@ -25,39 +38,54 @@ form {
     justify-content: space-between;
 }
 form button {
-    background-color: var(--very-dark-desaturated-blue);
     cursor: pointer;
     border: none;
 }
-form button:hover {
+.dark4:hover {
     background-color: var(--dark-grayish-blue2)
+}
+.light4:hover {
+    background-color: var(--very-light-grayish-blue)
 }
 form button:focus-visible {
     outline: none;
 }
 input {
     font-family: var(--font-family);
-    background-color: var(--very-dark-desaturated-blue);
     height: 100%;
     border: none;
-    color: var(--light-grayish-blue);
     font-size: 22px;
     width: 90%;
     cursor: pointer;
     caret-color: var(--bright-blue);
 }
-input:focus-visible {
-    outline: none;
-}
 input::placeholder {
-    color: var(--light-grayish-blue);
     font-size: 22px;
     font-family: var(--font-family);
 }
-input:-webkit-autofill {
+.dark3,
+.dark3::placeholder {
+    background-color: var(--very-dark-desaturated-blue);
+    color: var(--light-grayish-blue);
+}
+.light3,
+.light3::placeholder {
+    background-color: white;
+    color: var(--very-dark-desaturated-blue); /*to be continued*/
+}
+input:focus-visible {
+    outline: none;
+}
+.dark3:-webkit-autofill {
     border: 1px solid var(--very-dark-desaturated-blue);
     -webkit-text-fill-color: var(--light-grayish-blue);
     -webkit-box-shadow: 0 0 0px 1000px var(--very-dark-desaturated-blue) inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+.light3:-webkit-autofill {
+    border: 1px solid white;
+    -webkit-text-fill-color: var(--very-dark-desaturated-blue);
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
     transition: background-color 5000s ease-in-out 0s;
 }
 .todo__newtodo-error {

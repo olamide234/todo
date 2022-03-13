@@ -18,38 +18,56 @@
     justify-content: space-between;
     align-items: center;
     font-size: 16px;
-    color: var(--dark-grayish-blue2);
-}
-#dark {
-    background-color: var(--very-dark-desaturated-blue);
 }
 .todo__todolist-functions__btn button {
-    background-color: var(--very-dark-desaturated-blue);
     border: none;
     padding: .5rem;
-    color: var(--dark-grayish-blue2);
     font-size: 16px;
     cursor: pointer;
 }
-.todo__todolist-functions__btn button:hover,
-.todo__todolist-functions__btn button:focus,
-.todo__todolist-functions__CComp:hover,
-.todo__todolist-functions__CComp:focus {
+.dark-i,
+.dark-ii button {
+    background-color: var(--very-dark-desaturated-blue);
+    color: var(--dark-grayish-blue2);
+}
+.light-i,
+.light-ii button {
+    background-color: white;
+    color: var(--dark-grayish-blue2);
+}
+.dark-ii button:hover,
+.dark-ii button:focus,
+.dark-iii:hover,
+.dark-iii:focus {
     color: var(--very-light-grayish-blue);
+}
+.light-ii button:hover,
+.light-ii button:focus,
+.light-iii:hover,
+.light-iii:focus {
+    color: var(--very-dark-blue);
 }
 .todo__todolist-functions__btn button:focus-visible {
     outline: none;
 }
 .todo__todolist-functions__CComp {
-    background-color: var(--very-dark-desaturated-blue);
+    /* background-color: var(--very-dark-desaturated-blue); */
     border: none;
-    color: var(--dark-grayish-blue2);
+    /* color: var(--dark-grayish-blue2); */
     font-size: 16px;
     cursor: pointer;
 }
+.dark-iii {
+    background-color: var(--very-dark-desaturated-blue);
+    color: var(--dark-grayish-blue2);
+}
+.light-iii {
+    background-color: white;
+    color: var(--dark-grayish-blue2);
+}
 .todo__todolist-p {
     color: var(--dark-grayish-blue2);
-    font-size: 14px;
+    font-size: 15px;
     justify-content: center;
     display: flex;
     padding-top: 4rem;
