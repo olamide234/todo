@@ -9,8 +9,8 @@ function App() {
     setTheme(mode);
   }
   return (
-    <div id={theme ? 'light-a' : 'dark-a'}>
-      <div className="App" id={theme ? 'light-app' : 'dark-app'}>
+    <div className={theme ? 'light-a' : 'dark-a'}>
+      <div className={theme ? 'App light-app' : 'App dark-app'}>
         <TodoList forTheme={forTheme}/>
       </div>
     </div>

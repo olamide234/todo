@@ -26,7 +26,8 @@
 .todo__oneTodo-main__txt-completed {
     font-size: 22px;
     font-family: var(--font-family);
-    overflow: scroll;
+    overflow: auto;
+    overflow-wrap: break-word;
 }
 .dark-l {
     color: var(--light-grayish-blue);
@@ -127,4 +128,23 @@
 .light-p:hover {
     color: var(--very-dark-blue);
     background-color: var(--very-light-grayish-blue);
+}
+@media screen and (max-width:769px) {
+    .todo__oneTodo-main {
+        max-width: 80%;
+    }
+}
+@media screen and (max-width:550px) {
+    .todo__oneTodo-main__toggleBtn {
+        min-width: 24px;
+        height: 24px;
+        margin-right: 1rem;
+    }
+    .todo__oneTodo { 
+        padding: 1rem .6rem;
+    }
+    .todo__oneTodo-main__txt,
+    .todo__oneTodo-main__txt-completed {
+        font-size: 17px;
+    }
 }

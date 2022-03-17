@@ -71,7 +71,7 @@ input::placeholder {
 .light3,
 .light3::placeholder {
     background-color: white;
-    color: var(--very-dark-desaturated-blue); /*to be continued*/
+    color: var(--very-dark-desaturated-blue); 
 }
 input:focus-visible {
     outline: none;
@@ -96,4 +96,21 @@ input:focus-visible {
 }
 .todo__newtodo-error p {
     margin: 0.1rem 1rem 0;
+}
+@media screen and (max-width: 550px) {
+    .todo__newtodo-content {
+        padding: 1rem .6rem;
+    }
+    input,
+    input::placeholder {
+        font-size: 17px;
+    }
+    .todo__newtodo-content__btn {
+        min-width: 24px;
+        height: 24px;
+        margin-right: 1rem;
+    }
+    .todo__newtodo-error {
+        font-size: 14px;
+    }
 }

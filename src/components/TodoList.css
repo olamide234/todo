@@ -25,13 +25,11 @@
     font-size: 16px;
     cursor: pointer;
 }
-.dark-i,
-.dark-ii button {
+.dark-i, .dark-ii button {
     background-color: var(--very-dark-desaturated-blue);
     color: var(--dark-grayish-blue2);
 }
-.light-i,
-.light-ii button {
+.light-i, .light-ii button {
     background-color: white;
     color: var(--dark-grayish-blue2);
 }
@@ -51,9 +49,7 @@
     outline: none;
 }
 .todo__todolist-functions__CComp {
-    /* background-color: var(--very-dark-desaturated-blue); */
     border: none;
-    /* color: var(--dark-grayish-blue2); */
     font-size: 16px;
     cursor: pointer;
 }
@@ -74,8 +70,69 @@
 }
 .completed-li p {
     text-decoration: line-through;
-    color: hsl(234, 11%, 52%);
 }
 .completed-li button {
     background-image: var(--gradient-round-button);
+}
+
+@media screen and (max-width:550px) {
+    .todo__todolist-heading h1 {
+        font-size: 2rem;
+        letter-spacing: 10px;
+    }
+    .todo__todolist-functions {
+        flex-wrap: wrap;
+        padding: 0;
+        line-height: unset;
+    }
+    .dark-i, .light-i {
+        background-color: unset;
+        color: var(--dark-grayish-blue2);
+    }
+    .todo__todolist-functions p {
+        order: 1;
+        flex-basis: 50%;
+        padding: 1rem .6rem;
+        font-size: 14px;
+        line-height: 25px;
+    }
+    .todo__todolist-functions__CComp {
+        order: 2;
+        flex-basis: 50%;
+        justify-content: right;
+        display: flex;
+        padding: 1rem .6rem;
+        font-size: 14px;
+        line-height: 25px;
+    }
+    .todo__todolist-functions__btn {
+        order: 3;
+        flex-basis: 100%;
+        justify-content: center;
+        display: flex;
+        margin-top: 1rem ;
+        padding: .5rem;
+    }
+    .dark-iv, .dark-ii, .dark-iii {
+        background-color: var(--very-dark-desaturated-blue);
+    }
+    .light-iv, .light-ii, .light-iii {
+        background-color: white;
+    }   
+}
+@media screen and (max-width:380px) {
+    .todo__todolist-heading h1 {
+        font-size: 1.8rem;
+        letter-spacing: 7px;
+    }
+}
+@media screen and (max-width:290px) {
+    .todo__todolist-p,
+    .todo__todolist-functions p,
+    .todo__todolist-functions__CComp {
+        font-size: 12px;
+    }
+    .todo__todolist-functions__btn button {
+        font-size: 14px;
+    }
 }

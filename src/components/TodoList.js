@@ -210,7 +210,7 @@ export default class TodoList extends Component {
         <div
           className={this.state.toggle ? "todo__todolist-functions light-i" : "todo__todolist-functions dark-i"}
         >
-          <p>{this.state.count} items left</p>
+          <p className={this.state.toggle ? "light-iv" : "dark-iv"}>{this.state.count} items left</p>
           <div className={this.state.toggle ? "todo__todolist-functions__btn light-ii" : "todo__todolist-functions__btn dark-ii"}>
             <button onClick={this.handleAll}>All</button>
             <button onClick={this.handleActive}>Active</button>
