@@ -47,7 +47,8 @@ form button {
 .light4:hover {
     background-color: var(--very-light-grayish-blue)
 }
-form button:focus-visible {
+form button:focus-visible,
+input:focus-visible {
     outline: none;
 }
 input {
@@ -72,9 +73,6 @@ input::placeholder {
 .light3::placeholder {
     background-color: white;
     color: var(--very-dark-desaturated-blue); 
-}
-input:focus-visible {
-    outline: none;
 }
 .dark3:-webkit-autofill {
     border: 1px solid var(--very-dark-desaturated-blue);
