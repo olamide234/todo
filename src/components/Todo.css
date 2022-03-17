@@ -133,6 +133,9 @@
     }
 }
 @media screen and (max-width:550px) {
+    .todo__oneTodo-main {
+        max-width: 70%;
+    }
     .todo__oneTodo-main__toggleBtn {
         min-width: 24px;
         height: 24px;
