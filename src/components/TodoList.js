@@ -183,7 +183,6 @@ export default class TodoList extends Component {
               task={todo.task}
               removeTodo={this.remove}
               updateTodo={this.update}
-              toggleTodo={this.toggleCompletion}
               theme={toggle}
             />
           </li>
@@ -200,7 +199,6 @@ export default class TodoList extends Component {
               task={todo.task}
               forCompleted={todo.isCompleted}
               removeTodo={this.remove}
-              toggleTodo={this.toggleCompletion}
               theme={toggle}
             />
           </li>

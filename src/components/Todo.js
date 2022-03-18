@@ -35,8 +35,10 @@ export default class Todo extends Component {
     });
   }
   handleToggleCompletion() {
-    this.setState({ isCompleted: !this.state.isCompleted });
-    this.props.toggleTodo(this.props.id, !this.state.isCompleted);
+    if(this.props.toggleTodo) {
+      this.setState({ isCompleted: !this.state.isCompleted });
+      this.props.toggleTodo(this.props.id, !this.state.isCompleted);
+    }
   }
   render() {
     let result;
