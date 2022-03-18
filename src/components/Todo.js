@@ -9,14 +9,13 @@ export default class Todo extends Component {
     this.state = {
       isEditing: false,
       task: this.props.task,
-      isCompleted: false,
+      isCompleted: this.props.forCompleted,
     };
     this.handleRemove = this.handleRemove.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleToggleCompletion = this.handleToggleCompletion.bind(this);
-    // this.coverAll = this.coverAll.bind(this);
   }
   handleRemove() {
     this.props.removeTodo(this.props.id, this.state.isCompleted);
@@ -36,17 +35,10 @@ export default class Todo extends Component {
     });
   }
   handleToggleCompletion() {
-    // if this.props.isCompleted !=
     this.setState({ isCompleted: !this.state.isCompleted });
     this.props.toggleTodo(this.props.id, !this.state.isCompleted);
   }
-  // coverAll() {
-  //     this.setState((st) => ({
-  //         isCompleted: this.props.isCompleted
-  //     }))
-  // }
   render() {
-    // console.log(this.state.isCompleted)
     let result;
     if (this.state.isEditing) {
       result = (
@@ -71,7 +63,7 @@ export default class Todo extends Component {
           <div
             className={"todo__oneTodo-main"}
             onClick={this.handleToggleCompletion}
-          >
+          > 
             <button className={this.state.isCompleted && this.props.theme
                 ? "todo__oneTodo-main__toggleBtn completed light-kc"
                 : this.state.isCompleted && !this.props.theme
@@ -101,17 +93,15 @@ export default class Todo extends Component {
           </div>
           <div className="todo__oneTodo-functions">
             {!this.state.isCompleted && !this.props.forCompleted && (
-              // <button className="todo__oneTodo-functions__edit" onClick={this.toggleForm}><MdEdit color="hsl(233, 14%, 35%)" size={25}/></button>
               <MdEdit
-                className="todo__oneTodo-functions__edit"
+                className={this.props.theme ? "todo__oneTodo-functions__edit light-q" : "todo__oneTodo-functions__edit dark-q"}
                 onClick={this.toggleForm}
                 color="hsl(233, 14%, 35%)"
                 size={25}
               />
             )}
-            {/* <button className="todo__oneTodo-functions__delete" onClick={this.handleRemove}><MdDelete color="hsl(233, 14%, 35%)" size={25}/></button> */}
             <MdDelete
-              className="todo__oneTodo-functions__delete"
+              className={this.props.theme ? "todo__oneTodo-functions__delete light-q" : "todo__oneTodo-functions__delete dark-q"}
               onClick={this.handleRemove}
               color="hsl(233, 14%, 35%)"
               size={25}

@@ -22,7 +22,6 @@ export default class NewTodoForm extends Component {
     !this.state.task ? this.setState({error: "Please add a todo"}) : this.setState({error: ""})
   }
   render() {
-    console.log(this.props.theme)
     return (
       <div className= "todo__newtodo">
         <div className={this.props.theme ? "todo__newtodo-content light1" : "todo__newtodo-content dark1"}>

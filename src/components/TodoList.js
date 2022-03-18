@@ -15,6 +15,7 @@ export default class TodoList extends Component {
       completed: false,
       activeTodos: [],
       completedTodos: [],
+      reservedCompList: [],
       count: 0,
       toggle: false,
     };
@@ -86,15 +87,14 @@ export default class TodoList extends Component {
     }
     this.setState({ todos: updatedTodos });
   }
-
   handleAll() {
     const newAllTodos = this.state.todos.map((t) => {
       if (t.isCompleted === undefined) {
         return { ...t, isCompleted: false };
       }
-      return { ...t, isCompleted: t.isCompleted };
+      return { ...t};
     });
-    console.log(newAllTodos);
+
     this.setState({
       todos: newAllTodos,
       all: true,
@@ -102,13 +102,17 @@ export default class TodoList extends Component {
       completed: false,
     });
   }
-
   handleActive() {
+    let reservedCompList = [];
+    this.state.todos.map(({id, isCompleted}) => (
+      isCompleted && reservedCompList.push(id)
+    ));
     const activatedTodos = this.state.todos.filter((todo) => {
       return !todo.isCompleted;
     });
     this.setState({
       activeTodos: activatedTodos,
+      reservedCompList: reservedCompList,
       all: false,
       active: true,
       completed: false,
@@ -140,9 +144,16 @@ export default class TodoList extends Component {
     this.props.forTheme(!this.state.toggle);
   }
   render() {
-    const { active, completed, all, todos, activeTodos, completedTodos } =
-      this.state;
-    console.log(todos);
+    const {
+      active,
+      completed,
+      all,
+      todos,
+      activeTodos,
+      completedTodos,
+      toggle,
+    } = this.state;
+
     const output = all
       ? todos?.map((todo) => (
           <li
@@ -160,7 +171,7 @@ export default class TodoList extends Component {
               removeTodo={this.remove}
               updateTodo={this.update}
               toggleTodo={this.toggleCompletion}
-              theme={this.state.toggle}
+              theme={toggle}
             />
           </li>
         ))
@@ -173,7 +184,7 @@ export default class TodoList extends Component {
               removeTodo={this.remove}
               updateTodo={this.update}
               toggleTodo={this.toggleCompletion}
-              theme={this.state.toggle}
+              theme={toggle}
             />
           </li>
         ))
@@ -189,8 +200,8 @@ export default class TodoList extends Component {
               task={todo.task}
               forCompleted={todo.isCompleted}
               removeTodo={this.remove}
-              toggleTodo={this.toggleCompletion} 
-              theme={this.state.toggle}
+              toggleTodo={this.toggleCompletion}
+              theme={toggle}
             />
           </li>
         ))
@@ -200,24 +211,85 @@ export default class TodoList extends Component {
         <div className="todo__todolist-heading">
           <h1>TODO</h1>
           <img
-            src={this.state.toggle ? moonIcon : sunIcon}
-            alt={this.state.toggle ? "moonIcon" : "sunIcon"}
+            src={toggle ? moonIcon : sunIcon}
+            alt={toggle ? "moonIcon" : "sunIcon"}
             onClick={this.toggleTheme}
           />
         </div>
-        <NewTodoForm createTodo={this.create} theme={this.state.toggle}/>
+        <NewTodoForm createTodo={this.create} theme={toggle} />
         <ul>{output}</ul>
         <div
-          className={this.state.toggle ? "todo__todolist-functions light-i" : "todo__todolist-functions dark-i"}
+          className={
+            toggle
+              ? "todo__todolist-functions light-i"
+              : "todo__todolist-functions dark-i"
+          }
         >
-          <p className={this.state.toggle ? "light-iv" : "dark-iv"}>{this.state.count} items left</p>
-          <div className={this.state.toggle ? "todo__todolist-functions__btn light-ii" : "todo__todolist-functions__btn dark-ii"}>
-            <button onClick={this.handleAll}>All</button>
-            <button onClick={this.handleActive}>Active</button>
-            <button onClick={this.handleCompleted}>Completed</button>
+          <p className={toggle ? "light-iv" : "dark-iv"}>
+            {this.state.count} items left
+          </p>
+          <div
+            className={
+              toggle
+                ? "todo__todolist-functions__btn light-ii"
+                : "todo__todolist-functions__btn dark-ii"
+            }
+          >
+            <button
+              onClick={this.handleAll}
+              className={
+                  all && toggle
+                    ? "color1"
+                    : all && !toggle
+                    ? "color2"
+                    : !all && toggle
+                    ? "color3"
+                    : !all && !toggle
+                    ? "color4"
+                    : ""
+              }
+            >
+              All
+            </button>
+            <button
+              onClick={this.handleActive}
+              className={
+                active && toggle
+                  ? "color1"
+                  : active && !toggle
+                  ? "color2"
+                  : !active && toggle
+                  ? "color3"
+                  : !active && !toggle
+                  ? "color4"
+                  : ""
+              }
+            >
+              Active
+            </button>
+            <button
+              onClick={this.handleCompleted}
+              className={
+                completed && toggle
+                  ? "color1"
+                  : completed && !toggle
+                  ? "color2"
+                  : !completed && toggle
+                  ? "color3"
+                  : !completed && !toggle
+                  ? "color4"
+                  : ""
+              }
+            >
+              Completed
+            </button>
           </div>
           <button
-            className={this.state.toggle ? "todo__todolist-functions__CComp light-iii" : "todo__todolist-functions__CComp dark-iii"}
+            className={
+              toggle
+                ? "todo__todolist-functions__CComp light-iii"
+                : "todo__todolist-functions__CComp dark-iii"
+            }
             onClick={this.handleClear}
           >
             Clear Completed
