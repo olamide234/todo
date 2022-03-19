@@ -214,7 +214,7 @@ export default class TodoList extends Component {
             onClick={this.toggleTheme}
           />
         </div>
-        <NewTodoForm createTodo={this.create} theme={toggle} />
+        <NewTodoForm createTodo={this.create} theme={toggle} addsToAll={this.handleAll}/>
         <ul>{output}</ul>
         <div
           className={

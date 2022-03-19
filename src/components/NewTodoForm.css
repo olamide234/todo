@@ -40,11 +40,12 @@ form {
 form button {
     cursor: pointer;
     border: none;
+    height: 28px;
+    background-color: var(--very-dark-desaturated-blue);
 }
 .dark4,
 .light4:hover{
     color: var(--very-dark-grayish-blue2);
-    font-weight: 700;
 }
 .light4{
     color: var(--dark-grayish-blue1);

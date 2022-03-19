@@ -9,6 +9,7 @@ export default class NewTodoForm extends Component {
     this.state = { task: "", error: ""};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addToAll = this.addToAll.bind(this);
   }
   handleChange(evt) {
     this.setState({
@@ -20,6 +21,9 @@ export default class NewTodoForm extends Component {
     this.state.task && this.props.createTodo({ ...this.state, id: uuidv4() });
     this.setState({ task: ""});
     !this.state.task ? this.setState({error: "Please add a todo"}) : this.setState({error: ""})
+  }
+  addToAll() {
+    this.props.addsToAll()
   }
   render() {
     return (
@@ -34,7 +38,7 @@ export default class NewTodoForm extends Component {
               value={this.state.task}
               onChange={this.handleChange}
             />
-            <VscAdd className={this.props.theme ? "light4" : "dark4"} size={28} />
+            <button><VscAdd className={this.props.theme ? "light4" : "dark4"} size={28} onClick={this.addToAll}/></button>
           </form>
         </div>
         <div className="todo__newtodo-error">
