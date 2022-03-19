@@ -98,14 +98,12 @@ export default class Todo extends Component {
               <MdEdit
                 className={this.props.theme ? "todo__oneTodo-functions__edit light-q" : "todo__oneTodo-functions__edit dark-q"}
                 onClick={this.toggleForm}
-                color="hsl(233, 14%, 35%)"
                 size={25}
               />
             )}
             <MdDelete
               className={this.props.theme ? "todo__oneTodo-functions__delete light-q" : "todo__oneTodo-functions__delete dark-q"}
               onClick={this.handleRemove}
-              color="hsl(233, 14%, 35%)"
               size={25}
             />
           </div>

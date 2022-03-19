@@ -82,11 +82,15 @@
     margin-left: .5rem;
     cursor: pointer;
 }
-.dark-q:hover {
-    background-color: var(--dark-grayish-blue2);
+.dark-q,
+.light-q:hover{
+    color: var(--very-dark-grayish-blue2);
 }
-.light-q:hover {
-    background-color: var(--very-light-grayish-blue);
+.light-q{
+    color: var(--dark-grayish-blue1);
+}
+.dark-q:hover {
+    color: var(--lighty-grayish-blue);
 }
 .todo__oneTodo-editing {
     line-height: 25px;

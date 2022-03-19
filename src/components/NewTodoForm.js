@@ -34,7 +34,7 @@ export default class NewTodoForm extends Component {
               value={this.state.task}
               onChange={this.handleChange}
             />
-            <button className={this.props.theme ? "light4" : "dark4"}><VscAdd color="hsl(233, 14%, 35%)" size={25} /></button>
+            <VscAdd className={this.props.theme ? "light4" : "dark4"} size={28} />
           </form>
         </div>
         <div className="todo__newtodo-error">

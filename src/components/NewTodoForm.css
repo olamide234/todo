@@ -41,11 +41,16 @@ form button {
     cursor: pointer;
     border: none;
 }
-.dark4:hover {
-    background-color: var(--dark-grayish-blue2)
+.dark4,
+.light4:hover{
+    color: var(--very-dark-grayish-blue2);
+    font-weight: 700;
 }
-.light4:hover {
-    background-color: var(--very-light-grayish-blue)
+.light4{
+    color: var(--dark-grayish-blue1);
+}
+.dark4:hover {
+    color: var(--lighty-grayish-blue);
 }
 form button:focus-visible,
 input:focus-visible {
