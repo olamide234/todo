@@ -15,7 +15,6 @@ export default class TodoList extends Component {
       completed: false,
       activeTodos: [],
       completedTodos: [],
-      reservedCompList: [],
       count: 0,
       toggle: false,
     };
@@ -103,16 +102,11 @@ export default class TodoList extends Component {
     });
   }
   handleActive() {
-    let reservedCompList = [];
-    this.state.todos.map(({id, isCompleted}) => (
-      isCompleted && reservedCompList.push(id)
-    ));
     const activatedTodos = this.state.todos.filter((todo) => {
       return !todo.isCompleted;
     });
     this.setState({
       activeTodos: activatedTodos,
-      reservedCompList: reservedCompList,
       all: false,
       active: true,
       completed: false,
