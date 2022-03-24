@@ -4,6 +4,7 @@ import NewTodoForm from "./NewTodoForm";
 import "./TodoList.css";
 import sunIcon from "../assets/icon-sun.svg";
 import moonIcon from "../assets/icon-moon.svg";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 export default class TodoList extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ export default class TodoList extends Component {
     this.handleCompleted = this.handleCompleted.bind(this);
     this.toggleTheme = this.toggleTheme.bind(this);
     this.handleClear = this.handleClear.bind(this);
+    this.handleOnDragEnd = this.handleOnDragEnd.bind(this);
   }
   create(newTodo) {
     this.setState((st) => ({
@@ -91,7 +93,7 @@ export default class TodoList extends Component {
       if (t.isCompleted === undefined) {
         return { ...t, isCompleted: false };
       }
-      return { ...t};
+      return { ...t };
     });
 
     this.setState({
@@ -137,6 +139,13 @@ export default class TodoList extends Component {
     this.setState({ toggle: !this.state.toggle });
     this.props.forTheme(!this.state.toggle);
   }
+  handleOnDragEnd(result) {
+    if(!result.destination) return;
+    const items = Array.from(this.state.todos);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+    this.setState({ todos: items });
+  }
   render() {
     const {
       active,
@@ -147,9 +156,9 @@ export default class TodoList extends Component {
       completedTodos,
       toggle,
     } = this.state;
-
+    
     const output = all
-      ? todos?.map((todo) => (
+      ? todos?.map((todo, idx) => (
           <li
             key={todo.id}
             style={{
@@ -159,6 +168,7 @@ export default class TodoList extends Component {
             }}
           >
             <Todo
+              index={idx}
               id={todo.id}
               task={todo.task}
               forCompleted={todo.isCompleted}
@@ -208,8 +218,25 @@ export default class TodoList extends Component {
             onClick={this.toggleTheme}
           />
         </div>
-        <NewTodoForm createTodo={this.create} theme={toggle} addsToAll={this.handleAll}/>
-        <ul>{output}</ul>
+        <NewTodoForm
+          createTodo={this.create}
+          theme={toggle}
+          addsToAll={this.handleAll}
+        />
+        <DragDropContext onDragEnd={this.handleOnDragEnd}>
+          <Droppable droppableId="todos">
+            {(provided) => (
+              <ul
+                className="todos"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
+                {output}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
+        </DragDropContext>
         <div
           className={
             toggle
@@ -230,15 +257,15 @@ export default class TodoList extends Component {
             <button
               onClick={this.handleAll}
               className={
-                  all && toggle
-                    ? "color1"
-                    : all && !toggle
-                    ? "color2"
-                    : !all && toggle
-                    ? "color3"
-                    : !all && !toggle
-                    ? "color4"
-                    : ""
+                all && toggle
+                  ? "color1"
+                  : all && !toggle
+                  ? "color2"
+                  : !all && toggle
+                  ? "color3"
+                  : !all && !toggle
+                  ? "color4"
+                  : ""
               }
             >
               All
