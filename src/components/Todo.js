@@ -27,7 +27,10 @@ export default class Todo extends Component {
   handleUpdate(evt) {
     evt.preventDefault();
     //take new task data and pass up to parent
-    this.props.updateTodo(this.props.id, this.state.task);
+    this.state.task && this.props.updateTodo(this.props.id, this.state.task);
+    !this.state.task 
+      && this.setState({ task: this.props.task})
+      && this.props.updateTodo(this.props.id, this.props.task);
     this.toggleForm();
   }
   handleChange(evt) {

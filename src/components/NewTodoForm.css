@@ -36,6 +36,7 @@ form {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 form button {
     cursor: pointer;
