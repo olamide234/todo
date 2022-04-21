@@ -4,7 +4,7 @@ import NewTodoForm from "./NewTodoForm";
 import "./TodoList.css";
 import sunIcon from "../assets/icon-sun.svg";
 import moonIcon from "../assets/icon-moon.svg";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
 export default class TodoList extends Component {
   constructor(props) {
